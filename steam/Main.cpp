@@ -8,6 +8,8 @@ bool achievementStatus;
 const char* name="ACH_WIN_ONE_GAME";//成就的api
 //const char* name="01";//成就的api
 uint32 unlockTime;//解锁时间
+const char* langueage;
+
 bool InitSteamAPI()
 {
     if (!SteamAPI_Init())
@@ -24,13 +26,19 @@ uint64_t GetCurrentPlayerSteamID()//获取当前steam用户的ID
     return steamID.ConvertToUint64();
 }
 
-void startfreinds() 
+void startfreinds() //显示steam好友界面
 {
     SteamFriends()->ActivateGameOverlay("friends");
 }
 void show()
 {
     SteamUtils()->SetOverlayNotificationPosition(k_EPositionBottomRight);
+}
+
+const char* getlangueage()//获取客户端语言
+{
+    langueage = SteamUtils()->GetSteamUILanguage();
+    return langueage;
 }
 
 
@@ -47,12 +55,12 @@ int main()
     }
     else
     {
-        startfreinds();
-        show();
+        //startfreinds();
     }
     if (InitSteamAPI() == true) {
         ISteamUserStats* steamUserStats = SteamUserStats();//新建
         bool success = steamUserStats->RequestCurrentStats();// 获取当前用户状态
+        show();
         if (success)
         {
             bool achieved = false;
@@ -62,7 +70,5 @@ int main()
             cout << achieved << " " << unlockTime;
         }
     }
-
-
     return 0;
 }
