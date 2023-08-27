@@ -5,24 +5,32 @@ using namespace std;
 
 
 bool achievementStatus;
-//const char* name="ACH_WIN_ONE_GAME";//³É¾ÍµÄapi
-const char* name="01";//³É¾ÍµÄapi
-uint32 unlockTime;//½âËøÊ±¼ä
-
+const char* name="ACH_WIN_ONE_GAME";//æˆå°±çš„api
+//const char* name="01";//æˆå°±çš„api
+uint32 unlockTime;//è§£é”æ—¶é—´
 bool InitSteamAPI()
 {
     if (!SteamAPI_Init())
     {
-        // ´¦Àí³õÊ¼»¯Ê§°ÜµÄÂß¼­
+        // å¤„ç†åˆå§‹åŒ–å¤±è´¥çš„é€»è¾‘
         return false;
     }
     return true;
 }
 
-uint64_t GetCurrentPlayerSteamID()//»ñÈ¡µ±Ç°steamÓÃ»§µÄID
+uint64_t GetCurrentPlayerSteamID()//è·å–å½“å‰steamç”¨æˆ·çš„ID
 {
     CSteamID steamID = SteamUser()->GetSteamID();
     return steamID.ConvertToUint64();
+}
+
+void startfreinds() 
+{
+    SteamFriends()->ActivateGameOverlay("friends");
+}
+void show()
+{
+    SteamUtils()->SetOverlayNotificationPosition(k_EPositionBottomRight);
 }
 
 
@@ -37,16 +45,21 @@ int main()
         printf("Fatal Error - Steam must be running to play this game (SteamAPI_Init() failed).\n");
         return 1;
     }
+    else
+    {
+        startfreinds();
+        show();
+    }
     if (InitSteamAPI() == true) {
-        ISteamUserStats* steamUserStats = SteamUserStats();//ĞÂ½¨
-        bool success = steamUserStats->RequestCurrentStats();// »ñÈ¡µ±Ç°ÓÃ»§×´Ì¬
+        ISteamUserStats* steamUserStats = SteamUserStats();//æ–°å»º
+        bool success = steamUserStats->RequestCurrentStats();// è·å–å½“å‰ç”¨æˆ·çŠ¶æ€
         if (success)
         {
             bool achieved = false;
-            steamUserStats->ClearAchievement(name);
-            //steamUserStats->SetAchievement(name);//½âËø³É¾Í
-            //steamUserStats->GetUserAchievementAndUnlockTime(GetCurrentPlayerSteamID(),name, &achieved, &unlockTime);//»ñÈ¡³É¾Í½âËøÊ±¼äºÍÊÇ·ñ½âËø
-            //cout << achieved << " " << unlockTime;
+            //steamUserStats->ClearAchievement(name);
+            steamUserStats->SetAchievement(name);//è§£é”æˆå°±
+            steamUserStats->GetUserAchievementAndUnlockTime(GetCurrentPlayerSteamID(),name, &achieved, &unlockTime);//è·å–æˆå°±è§£é”æ—¶é—´å’Œæ˜¯å¦è§£é”
+            cout << achieved << " " << unlockTime;
         }
     }
 
