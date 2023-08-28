@@ -1,14 +1,15 @@
-#include "steam_api.h"
-#include<iostream>
 #include"isteamuserstats.h"
+#include"achievement.cpp"
+#include"friends.cpp"
 using namespace std;
 
 
 bool achievementStatus;
 const char* name="ACH_WIN_ONE_GAME";//成就的api
-//const char* name="01";//成就的api
 uint32 unlockTime;//解锁时间
 const char* langueage;
+bool achieved;
+
 
 bool InitSteamAPI()
 {
@@ -26,10 +27,6 @@ uint64_t GetCurrentPlayerSteamID()//获取当前steam用户的ID
     return steamID.ConvertToUint64();
 }
 
-void startfreinds() //显示steam好友界面
-{
-    SteamFriends()->ActivateGameOverlay("friends");
-}
 void show()
 {
     SteamUtils()->SetOverlayNotificationPosition(k_EPositionBottomRight);
@@ -56,19 +53,16 @@ int main()
     else
     {
         //startfreinds();
-    }
-    if (InitSteamAPI() == true) {
         ISteamUserStats* steamUserStats = SteamUserStats();//新建
-        bool success = steamUserStats->RequestCurrentStats();// 获取当前用户状态
-        show();
-        if (success)
-        {
-            bool achieved = false;
-            //steamUserStats->ClearAchievement(name);
-            steamUserStats->SetAchievement(name);//解锁成就
-            steamUserStats->GetUserAchievementAndUnlockTime(GetCurrentPlayerSteamID(),name, &achieved, &unlockTime);//获取成就解锁时间和是否解锁
-            cout << achieved << " " << unlockTime;
-        }
+        /*
+        Achievement* achievement = new Achievement();
+        achievement->Unlockachievements(name, steamUserStats);
+        achievement->GetUserAchievementAndUnlockTime(GetCurrentPlayerSteamID(), name, achieved, unlockTime, steamUserStats);
+        delete achievement;
+        */
+        Achievement achievement;
+        achievement.GetUserAchievementAndUnlockTime(GetCurrentPlayerSteamID(), name, achieved, unlockTime, steamUserStats);
+        
     }
     return 0;
 }

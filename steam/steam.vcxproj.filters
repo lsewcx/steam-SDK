@@ -18,6 +18,15 @@
     <ClCompile Include="Main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="achievement.hpp">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="achievement.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="friends.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="steam_api.dll">
@@ -26,5 +35,10 @@
     <None Include="sdkencryptedappticket.dll">
       <Filter>资源文件</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="friend.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

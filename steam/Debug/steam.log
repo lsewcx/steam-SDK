@@ -1,2 +1,3 @@
-﻿  Main.cpp
+﻿  achievement.cpp
+Debug\achievement.obj : warning LNK4042: 对象被多次指定；已忽略多余的指定
   steam.vcxproj -> D:\sdk\steam\Debug\steam.exe

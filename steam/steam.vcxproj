@@ -142,11 +142,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="achievement.cpp" />
+    <ClCompile Include="achievement.hpp" />
+    <ClCompile Include="friends.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="sdkencryptedappticket.dll" />
     <None Include="steam_api.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="friend.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
