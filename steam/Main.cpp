@@ -54,12 +54,13 @@ int main()
     {
         //startfreinds();
         ISteamUserStats* steamUserStats = SteamUserStats();//新建
-        /*
+        /*手动形式
         Achievement* achievement = new Achievement();
         achievement->Unlockachievements(name, steamUserStats);
         achievement->GetUserAchievementAndUnlockTime(GetCurrentPlayerSteamID(), name, achieved, unlockTime, steamUserStats);
         delete achievement;
         */
+        //析构函数自动调用形式
         Achievement achievement;
         achievement.GetUserAchievementAndUnlockTime(GetCurrentPlayerSteamID(), name, achieved, unlockTime, steamUserStats);
         

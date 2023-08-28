@@ -88,7 +88,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CRT_SECURE_NO_WARNINGS;_CONSLOE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\sdk\public\steam;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\sdk\steam\steam\head;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -143,7 +143,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="achievement.cpp" />
-    <ClCompile Include="achievement.hpp" />
     <ClCompile Include="friends.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
@@ -152,7 +151,8 @@
     <None Include="steam_api.dll" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="friend.h" />
+    <ClInclude Include="head\achievement.h" />
+    <ClInclude Include="head\friend.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
