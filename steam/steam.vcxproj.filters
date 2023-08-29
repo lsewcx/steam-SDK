@@ -24,6 +24,9 @@
     <ClCompile Include="friends.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="steam_api.dll">
@@ -38,6 +41,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="head\friend.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="head\Utils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="head\public.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

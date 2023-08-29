@@ -1,16 +1,7 @@
-#include"isteamuserstats.h"
-#include"achievement.cpp"
-#include"friends.cpp"
+#include"public.h"
 using namespace std;
 
-
-bool achievementStatus;
-const char* name="ACH_WIN_ONE_GAME";//成就的api
-uint32 unlockTime;//解锁时间
-const char* langueage;
-bool achieved;
-
-
+Public publicname;
 bool InitSteamAPI()
 {
     if (!SteamAPI_Init())
@@ -32,11 +23,6 @@ void show()
     SteamUtils()->SetOverlayNotificationPosition(k_EPositionBottomRight);
 }
 
-const char* getlangueage()//获取客户端语言
-{
-    langueage = SteamUtils()->GetSteamUILanguage();
-    return langueage;
-}
 
 
 int main()
@@ -61,9 +47,9 @@ int main()
         delete achievement;
         */
         //析构函数自动调用形式
-        Achievement achievement;
-        achievement.GetUserAchievementAndUnlockTime(GetCurrentPlayerSteamID(), name, achieved, unlockTime, steamUserStats);
-        
+        //achievement.Unlockachievements(name, steamUserStats);
+        publicname.achievement.GetUserAchievementAndUnlockTime(GetCurrentPlayerSteamID(), publicname.name, publicname.achieved, publicname.unlockTime, steamUserStats);
+        cout << publicname.utils.getlanguage();
     }
     return 0;
 }

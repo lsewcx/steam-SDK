@@ -15,6 +15,6 @@ public:
 	}
 	~Achievement()
 	{
-		cout << "end" << endl;
+		cout << "finish achievement" << endl;
 	}
 };

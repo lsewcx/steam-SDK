@@ -1,2 +1,0 @@
-﻿Main.obj : error LNK2019: 无法解析的外部符号 __imp_SteamAPI_Init，函数 "bool __cdecl InitSteamAPI(void)" (?InitSteamAPI@@YA_NXZ) 中引用了该符号
-D:\sdk\steam\x64\Debug\steam.exe : fatal error LNK1120: 1 个无法解析的外部命令
