@@ -6,4 +6,8 @@ public:
 	const char* getlanguage() override {
 		return SteamUtils()->GetSteamUILanguage();
 	}
+
+	const char* getIP() override {
+		return  SteamUtils()->GetIPCountry();
+	}
 };
