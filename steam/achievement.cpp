@@ -13,8 +13,4 @@ public:
 		steamUserStats->GetUserAchievementAndUnlockTime(id, name, &achieved, &unlockTime);
 		cout << achieved << " " << unlockTime<<endl;
 	}
-	~Achievement()
-	{
-		cout << "finish achievement" << endl;
-	}
 };

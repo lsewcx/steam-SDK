@@ -18,12 +18,6 @@ uint64_t GetCurrentPlayerSteamID()//获取当前steam用户的ID
     return steamID.ConvertToUint64();
 }
 
-void show()
-{
-    SteamUtils()->SetOverlayNotificationPosition(k_EPositionBottomRight);
-}
-
-
 
 int main()
 {
@@ -48,8 +42,8 @@ int main()
         */
         //析构函数自动调用形式
         //achievement.Unlockachievements(name, steamUserStats);
-        publicname.achievement.GetUserAchievementAndUnlockTime(GetCurrentPlayerSteamID(), publicname.get_name(), publicname.get_achieved(), publicname.get_unlockTime(), steamUserStats);
-        cout << publicname.utils.getlanguage()<<endl;
+        //publicname.achievement.GetUserAchievementAndUnlockTime(GetCurrentPlayerSteamID(), publicname.get_name(), publicname.get_achieved(), publicname.get_unlockTime(), steamUserStats);
+        //cout << publicname.utils.getlanguage()<<endl;
         cout << publicname.utils.getIP() << endl;
     }
     return 0;
